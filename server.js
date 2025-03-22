@@ -55,6 +55,11 @@ app.use('/api' , OrdersRouter) ;
 app.use('/api' , AddressRouter) ;
 
 
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+
 
 app.use('/' , (req , res , next) => {
   res.status(404).send("Page not found");

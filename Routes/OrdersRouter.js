@@ -48,8 +48,8 @@ const uploadFields = upload.fields([
 import {newTranslationOrder} from "../Controller/OrdersController.js"
 import {authenticateUser} from "../middleware/Authentication.js"
 
-router.use(Authmiddleware) ;
 
-router.post('/order/translation', uploadFields , newTranslationOrder );
+
+router.post('/order/translation', authenticateUser ,  uploadFields , newTranslationOrder );
 
 export default router;
